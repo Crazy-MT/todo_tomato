@@ -10,6 +10,7 @@ import 'package:flutter_architecture_samples/utils/view_util.dart';
 import 'package:flutter_architecture_samples/view/page/page_state.dart';
 import 'package:flutter_architecture_samples/view/page/read_page.dart';
 import 'package:flutter_architecture_samples/view/page/setting_page.dart';
+import 'package:flutter_architecture_samples/view/page/today_page.dart';
 
 import '../../language.dart';
 import 'about_page.dart';
@@ -282,7 +283,7 @@ class HomeState extends PageState<HomePage> {
           offstage: _pageType != PageType.TODAY,
           child: TickerMode(
             enabled: _pageType == PageType.TODAY,
-            child: _pageTypeMap[PageType.TODAY] ? Center(child: Image.asset("images/drawer_bg.png"),) : Image.asset("images/drawer_bg.png"),
+            child: _pageTypeMap[PageType.TODAY] ? TodayPage() : Image.asset("images/drawer_bg.png"),
           ),
         ),
 

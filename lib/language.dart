@@ -33,8 +33,8 @@ class AppText {
       // 主页
       "read": "闲读",
       "collect": "收藏",
-      "today":"今日番茄时间",
-      "history":"历史番茄记录",
+      "today": "今日番茄时间",
+      "history": "历史番茄记录",
       "setting": "设置",
       "about": "关于",
       "retryToExit": "再按一次退出App！",
@@ -58,6 +58,11 @@ class AppText {
       "xianduThinkFail": "独立思想获取失败！",
       "xianduIosFail": "iOS获取失败！",
       "xianduBlogFail": "团队博客获取失败！",
+
+      // 今日番茄时间
+      "todayTodoList": "今日任务清单",
+      "todayAllList": "活动清单",
+      "todayLifeList": "生活清单",
 
       // 收藏
       "listEmpty": "列表为空",
@@ -89,7 +94,7 @@ class AppText {
       "alreadyNew": "已是最新版本！",
       "shareApp": "分享应用",
       "shareAppUrl":
-      "来不及了，赶急上车！https://github.com/Crazy-MT/FlutterArchitectureSamples",
+          "来不及了，赶急上车！https://github.com/Crazy-MT/FlutterArchitectureSamples",
       "thanks": "感谢",
       "connectMe": "联系我",
       "zhihuPage": "Crazy-MT",
@@ -195,6 +200,15 @@ class AppText {
 
   String get xianduBlogFail =>
       _localizedValues[locale.languageCode]["xianduBlogFail"];
+
+  String get todayTodoList =>
+      _localizedValues[locale.languageCode]["todayTodoList"];
+
+  String get todayAllList =>
+      _localizedValues[locale.languageCode]["todayAllList"];
+
+  String get todayLifeList =>
+      _localizedValues[locale.languageCode]["todayLifeList"];
 
   String get listEmpty => _localizedValues[locale.languageCode]["listEmpty"];
 
