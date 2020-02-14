@@ -21,7 +21,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_architecture_samples"
+        android:label="番茄任务"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

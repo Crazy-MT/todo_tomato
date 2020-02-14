@@ -51,6 +51,8 @@ class SharedDepository {
       return List.from([
         PageModule(module: "read", open: true),
         PageModule(module: "collect", open: true),
+        PageModule(module: "today", open: true),
+        PageModule(module: "history", open: true),
       ]);
     } else {
       return (jsonDecode(str) as List)

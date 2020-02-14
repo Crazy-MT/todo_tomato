@@ -50,6 +50,8 @@ class HomeState extends PageState<HomePage> {
     // 让第一个页面生效
     _pageTypeMap[PageType.READ] = true;
     _pageTypeMap[PageType.COLLECT] = false;
+    _pageTypeMap[PageType.TODAY] = false;
+    _pageTypeMap[PageType.HISTORY] = false;
   }
 
   @override
@@ -69,6 +71,17 @@ class HomeState extends PageState<HomePage> {
             _pageTypeMap[PageType.COLLECT] = false;
           }
           break;
+        case "today":
+          if(!module.open) {
+            _pageTypeMap[PageType.TODAY] = false;
+          }
+          break;
+
+        case "history":
+          if(!module.open) {
+            _pageTypeMap[PageType.HISTORY] = false;
+          }
+          break;
       }
     });
     if (!_pageTypeMap.values.contains(true)) {
@@ -83,6 +96,16 @@ class HomeState extends PageState<HomePage> {
           case "collect":
             _pageTypeMap[PageType.COLLECT] = true;
             _pageType = PageType.COLLECT;
+            break;
+
+          case "today":
+            _pageTypeMap[PageType.TODAY] = true;
+            _pageType = PageType.TODAY;
+            break;
+
+          case "history":
+            _pageTypeMap[PageType.HISTORY] = true;
+            _pageType = PageType.HISTORY;
             break;
         }
       }
@@ -152,6 +175,38 @@ class HomeState extends PageState<HomePage> {
                                   _pageTypeMap[_pageType] = true;
                                 });
                               })
+                          : Container();
+
+                    case "today":
+                      return module.open
+                          ? _buildDrawerItem(
+                          icon: Icons.favorite_border,
+                          title: AppText.of(context).today,
+                          isTarget: _pageType == PageType.TODAY,
+                          onTap: () {
+                            if (_pageType == PageType.TODAY) return;
+
+                            setState(() {
+                              _pageType = PageType.TODAY;
+                              _pageTypeMap[_pageType] = true;
+                            });
+                          })
+                          : Container();
+
+                    case "history":
+                      return module.open
+                          ? _buildDrawerItem(
+                          icon: Icons.favorite_border,
+                          title: AppText.of(context).history,
+                          isTarget: _pageType == PageType.HISTORY,
+                          onTap: () {
+                            if (_pageType == PageType.HISTORY) return;
+
+                            setState(() {
+                              _pageType = PageType.HISTORY;
+                              _pageTypeMap[_pageType] = true;
+                            });
+                          })
                           : Container();
                   }
 
@@ -223,10 +278,26 @@ class HomeState extends PageState<HomePage> {
           ),
         ),
 
+        Offstage(
+          offstage: _pageType != PageType.TODAY,
+          child: TickerMode(
+            enabled: _pageType == PageType.TODAY,
+            child: _pageTypeMap[PageType.TODAY] ? Center(child: Image.asset("images/drawer_bg.png"),) : Image.asset("images/drawer_bg.png"),
+          ),
+        ),
+
+        Offstage(
+          offstage: _pageType != PageType.HISTORY,
+          child: TickerMode(
+            enabled: _pageType == PageType.HISTORY,
+            child: _pageTypeMap[PageType.HISTORY] ? Center(child: Image.asset("images/drawer_bg.png"),) : Image.asset("images/drawer_bg.png"),
+          ),
+        ),
+
         // 关闭所有页面时的占位图片
         Center(
           child: SharedDepository().pageModules.indexWhere((v) => v.open) == -1
-              ? Image.asset("images/nothing_here.gif")
+              ? Image.asset("images/drawer_bg.png")
               : Container(),
         ),
       ],
@@ -284,4 +355,10 @@ enum PageType {
 
   /// 收藏页面
   COLLECT,
+
+  // 今日番茄时间
+  TODAY,
+
+  // 历史番茄记录
+  HISTORY,
 }

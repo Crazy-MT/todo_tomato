@@ -33,6 +33,8 @@ class AppText {
       // 主页
       "read": "闲读",
       "collect": "收藏",
+      "today":"今日番茄时间",
+      "history":"历史番茄记录",
       "setting": "设置",
       "about": "关于",
       "retryToExit": "再按一次退出App！",
@@ -133,6 +135,10 @@ class AppText {
   String get setting => _localizedValues[locale.languageCode]["setting"];
 
   String get collect => _localizedValues[locale.languageCode]["collect"];
+
+  String get today => _localizedValues[locale.languageCode]["today"];
+
+  String get history => _localizedValues[locale.languageCode]["history"];
 
   String get about => _localizedValues[locale.languageCode]["about"];
 
