@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CreateToDogDialog extends StatefulWidget {
+class CreateToDoDialog extends StatefulWidget {
   @override
-  _CreateToDogDialogState createState() => _CreateToDogDialogState();
+  _CreateToDoDialogState createState() => _CreateToDoDialogState();
 }
 
-class _CreateToDogDialogState extends State<CreateToDogDialog> {
+class _CreateToDoDialogState extends State<CreateToDoDialog> {
   String todoContent;
 
   @override
