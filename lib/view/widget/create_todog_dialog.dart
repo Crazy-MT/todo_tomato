@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture_samples/model/data/todo_data.dart';
+import 'package:flutter_architecture_samples/model/holder/todo_holder.dart';
+import 'package:flutter_architecture_samples/utils/system_util.dart';
 
 class CreateToDoDialog extends StatefulWidget {
   @override
@@ -34,15 +37,15 @@ class _CreateToDoDialogState extends State<CreateToDoDialog> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             TextField(
-              onChanged: (text) {//内容改变的回调
+              onChanged: (text) { //内容改变的回调
                 print('change $text');
                 todoContent = text;
               },
-              onSubmitted: (text) {//内容提交(按回车)的回调
+              onSubmitted: (text) { //内容提交(按回车)的回调
                 print('submit $text');
                 todoContent = text;
               },
-              decoration: InputDecoration(hintText: 'Enter what to do ...'),
+              decoration: InputDecoration(hintText: '输入待办事情'),
             ),
             Center(
               child: StreamBuilder<bool>(
@@ -59,6 +62,8 @@ class _CreateToDoDialogState extends State<CreateToDoDialog> {
                       label: Text('添加待办'),
                       onPressed: () {
                         print(todoContent);
+                        TodoHolder().autoFav(TodoData(currentTimeMillis(), todoContent));
+                        pop(context);
                       },
                     );
                   }),

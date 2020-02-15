@@ -122,3 +122,7 @@ void openBrowser(String url) async {
     throw "不能打开URL---->$url";
   }
 }
+
+String currentTimeMillis() {
+  return new DateTime.now().millisecondsSinceEpoch.toString();
+}

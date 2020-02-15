@@ -31,6 +31,12 @@ class SharedDepository {
   Future<bool> setFavReadData(String value) async =>
       await _prefs.setString("favReadData", value);
 
+  // 待办
+  String get todoData => _getString("todoData");
+
+  Future<bool> setTodoReadData(String value) async =>
+      await _prefs.setString("todoData", value);
+
   /// 当前主题色
   Color get themeColor =>
       Color(_getInt("themeColor", defaultValue: 0xff7DA743));
