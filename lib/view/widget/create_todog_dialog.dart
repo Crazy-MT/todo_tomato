@@ -62,7 +62,7 @@ class _CreateToDoDialogState extends State<CreateToDoDialog> {
                       label: Text('添加待办'),
                       onPressed: () {
                         print(todoContent);
-                        TodoHolder().autoFav(TodoData(currentTimeMillis(), todoContent));
+                        TodoHolder().addTodo(TodoData(currentTimeMillis(), todoContent));
                         pop(context);
                       },
                     );

@@ -70,6 +70,7 @@ class ReadContentState extends PageState<TodayListPage>
                     key: Key("Dismissible${datas[index].time}"),
                     child: _buildReadItem(
                         data: datas[index], index: index + 1),
+                    onDismissed: (_) => _viewModel.removeTodo(datas[index]),
                   );
                 },
               )

@@ -21,4 +21,8 @@ class TodayViewModel extends ViewModel {
 
     super.dispose();
   }
+
+  removeTodo(TodoData data) {
+    TodoHolder().removeTodo(data);
+  }
 }

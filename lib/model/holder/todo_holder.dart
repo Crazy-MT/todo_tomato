@@ -32,11 +32,22 @@ class TodoHolder<T> {
   }
 
   /// 添加或取消收藏
-  void autoFav(T t) async {
+  void addTodo(T t) async {
     if (t == null) return;
 
     if (t is TodoData) {
         _cache.add(t);
+
+      streamAdd(_todoReadBroadcast, _cache);
+      await SharedDepository().setTodoReadData(json.encode(_cache));
+    }
+  }
+
+  void removeTodo(T t) async {
+    if (t == null) return;
+
+    if (t is TodoData) {
+      _cache.removeWhere((v) => v.time == t.time);
 
       streamAdd(_todoReadBroadcast, _cache);
       await SharedDepository().setTodoReadData(json.encode(_cache));
