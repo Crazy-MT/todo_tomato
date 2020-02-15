@@ -124,7 +124,7 @@ class ReadContentState extends PageState<TodayListPage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      "$index. ${data.content}",
+                      "${data.content}",
                       textAlign: TextAlign.start,
                       style:
                           TextStyle(fontSize: 16, color: AppColor.colorText1),
@@ -132,10 +132,6 @@ class ReadContentState extends PageState<TodayListPage>
                     RichText(
                       text: TextSpan(
                         children: [
-                          TextSpan(text: data.time),
-                          TextSpan(
-                              text: " · ",
-                              style: TextStyle(fontWeight: FontWeight.bold)),
                           TextSpan(text: data.time),
                         ],
                         style:
