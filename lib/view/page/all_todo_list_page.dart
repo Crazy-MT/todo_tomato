@@ -11,7 +11,7 @@ import 'package:flutter_architecture_samples/view/widget/create_todog_dialog.dar
 import 'package:flutter_architecture_samples/view/widget/loading_view.dart';
 import 'package:flutter_architecture_samples/view/widget/net_image.dart';
 import 'package:flutter_architecture_samples/viewmodel/read_viewmodel.dart';
-import 'package:flutter_architecture_samples/viewmodel/today_viewmodel.dart';
+import 'package:flutter_architecture_samples/viewmodel/all_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/viewmodel.dart';
 
 class AllTodoListPage extends StatefulWidget {
@@ -26,7 +26,7 @@ class AllTodoListPage extends StatefulWidget {
 /// 继承[MustKeepAliveMixin]实现页面切换不被清理
 class ReadContentState extends PageState<AllTodoListPage>
     with MustKeepAliveMixin {
-  final _viewModel = TodayViewModel();
+  final _viewModel = AllViewModel();
 
   @override
   void initState() {

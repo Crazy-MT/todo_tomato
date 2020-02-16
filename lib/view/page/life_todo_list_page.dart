@@ -13,7 +13,7 @@ import 'package:flutter_architecture_samples/view/widget/loading_view.dart';
 import 'package:flutter_architecture_samples/view/widget/net_image.dart';
 import 'package:flutter_architecture_samples/viewmodel/life_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/read_viewmodel.dart';
-import 'package:flutter_architecture_samples/viewmodel/today_viewmodel.dart';
+import 'package:flutter_architecture_samples/viewmodel/all_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/viewmodel.dart';
 
 class LifeTodoListPage extends StatefulWidget {

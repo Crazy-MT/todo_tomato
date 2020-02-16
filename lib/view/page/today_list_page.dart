@@ -3,6 +3,7 @@ import 'package:flutter_architecture_samples/common/colors.dart';
 import 'package:flutter_architecture_samples/common/keep_alive_mixin.dart';
 import 'package:flutter_architecture_samples/language.dart';
 import 'package:flutter_architecture_samples/model/data/read_data.dart';
+import 'package:flutter_architecture_samples/model/data/today_todo_data.dart';
 import 'package:flutter_architecture_samples/model/data/todo_data.dart';
 import 'package:flutter_architecture_samples/utils/system_util.dart';
 import 'package:flutter_architecture_samples/view/page/page_state.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_architecture_samples/view/widget/create_todog_dialog.dar
 import 'package:flutter_architecture_samples/view/widget/loading_view.dart';
 import 'package:flutter_architecture_samples/view/widget/net_image.dart';
 import 'package:flutter_architecture_samples/viewmodel/read_viewmodel.dart';
+import 'package:flutter_architecture_samples/viewmodel/all_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/today_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/viewmodel.dart';
 
@@ -54,7 +56,7 @@ class ReadContentState extends PageState<TodayListPage>
       body: StreamBuilder(
         stream: _viewModel.data.stream,
         builder: (context, snapshot) {
-          final List<TodoData> datas = snapshot.data ?? [];
+          final List<TodayTodoData> datas = snapshot.data ?? [];
 
           return Stack(
             children: <Widget>[
@@ -108,7 +110,7 @@ class ReadContentState extends PageState<TodayListPage>
         });
   }
 
-  Widget _buildReadItem({@required TodoData data, @required int index}) {
+  Widget _buildReadItem({@required TodayTodoData data, @required int index}) {
     return Card(
       color: Colors.white,
       clipBehavior: Clip.hardEdge,
