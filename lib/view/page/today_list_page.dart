@@ -7,6 +7,7 @@ import 'package:flutter_architecture_samples/model/data/today_todo_data.dart';
 import 'package:flutter_architecture_samples/model/data/todo_data.dart';
 import 'package:flutter_architecture_samples/utils/system_util.dart';
 import 'package:flutter_architecture_samples/view/page/page_state.dart';
+import 'package:flutter_architecture_samples/view/page/tomato_page.dart';
 import 'package:flutter_architecture_samples/view/page/webview_page.dart';
 import 'package:flutter_architecture_samples/view/widget/create_todog_dialog.dart';
 import 'package:flutter_architecture_samples/view/widget/loading_view.dart';
@@ -140,6 +141,14 @@ class ReadContentState extends PageState<TodayListPage>
                             TextStyle(fontSize: 12, color: AppColor.colorText2),
                       ),
                     ),
+                    MaterialButton(
+                      child: Text('番茄钟'),
+                      onPressed: () {
+                        push(context,
+                          page: TomatoClockPage()
+                        );
+                      },
+                    )
                   ],
                 ),
               ),
