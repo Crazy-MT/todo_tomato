@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_architecture_samples/common/colors.dart';
 import 'package:flutter_architecture_samples/language.dart';
 import 'package:flutter_architecture_samples/model/holder/event_send_holder.dart';
+import 'package:flutter_architecture_samples/view/page/life_todo_list_page.dart';
 import 'package:flutter_architecture_samples/view/page/read_content_page.dart';
 import 'package:flutter_architecture_samples/view/page/today_list_page.dart';
 import 'package:flutter_architecture_samples/view/widget/custom_app_bar.dart';
+
+import 'all_todo_list_page.dart';
 
 class TodayPage extends StatelessWidget {
   @override
@@ -47,16 +50,16 @@ class TodayPage extends StatelessWidget {
               child: TabBarView(
                 children: [
                   TodayListPage(
-                    key: Key("ReadContentPagewow"),
-                    typeUrl: "wow",
+                    key: Key("TodayListPage"),
+                    type: "today",
                   ),
-                  ReadContentPage(
-                    key: Key("ReadContentPageapps"),
-                    typeUrl: "apps",
+                  AllTodoListPage(
+                    key: Key("AllTodoListPage"),
+                    type: "all",
                   ),
-                  ReadContentPage(
-                    key: Key("ReadContentPageimrich"),
-                    typeUrl: "imrich",
+                  LifeTodoListPage(
+                    key: Key("LifeTodoListPage"),
+                    type: "life",
                   )
                 ],
               ),

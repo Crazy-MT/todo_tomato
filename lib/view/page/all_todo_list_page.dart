@@ -14,17 +14,17 @@ import 'package:flutter_architecture_samples/viewmodel/read_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/today_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/viewmodel.dart';
 
-class TodayListPage extends StatefulWidget {
+class AllTodoListPage extends StatefulWidget {
   final String type;
 
-  TodayListPage({Key key, @required this.type}) : super(key: key);
+  AllTodoListPage({Key key, @required this.type}) : super(key: key);
 
   @override
   State createState() => ReadContentState();
 }
 
 /// 继承[MustKeepAliveMixin]实现页面切换不被清理
-class ReadContentState extends PageState<TodayListPage>
+class ReadContentState extends PageState<AllTodoListPage>
     with MustKeepAliveMixin {
   final _viewModel = TodayViewModel();
 

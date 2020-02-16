@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture_samples/model/data/life_todo_data.dart';
 import 'package:flutter_architecture_samples/model/data/todo_data.dart';
+import 'package:flutter_architecture_samples/model/holder/life_holder.dart';
 import 'package:flutter_architecture_samples/model/holder/todo_holder.dart';
 import 'package:flutter_architecture_samples/utils/system_util.dart';
 
 class CreateToDoDialog extends StatefulWidget {
+
+  String type;
+
+  CreateToDoDialog({@required this.type});
+
   @override
   _CreateToDoDialogState createState() => _CreateToDoDialogState();
 }
@@ -62,7 +69,19 @@ class _CreateToDoDialogState extends State<CreateToDoDialog> {
                       label: Text('添加待办'),
                       onPressed: () {
                         print(todoContent);
-                        TodoHolder().addTodo(TodoData(currentTimeMillis(), todoContent));
+                        switch(widget.type) {
+                          case "today":
+                            TodoHolder().addTodo(TodoData(currentTimeMillis(), todoContent));
+                            break;
+
+                          case "all":
+                            TodoHolder().addTodo(TodoData(currentTimeMillis(), todoContent));
+                            break;
+
+                          case "life":
+                            LifeHolder().addTodo(LifeData(currentTimeMillis(), todoContent));
+                            break;
+                        }
                         pop(context);
                       },
                     );

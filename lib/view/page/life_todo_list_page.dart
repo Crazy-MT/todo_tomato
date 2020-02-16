@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_architecture_samples/common/colors.dart';
 import 'package:flutter_architecture_samples/common/keep_alive_mixin.dart';
 import 'package:flutter_architecture_samples/language.dart';
+import 'package:flutter_architecture_samples/model/data/life_todo_data.dart';
 import 'package:flutter_architecture_samples/model/data/read_data.dart';
 import 'package:flutter_architecture_samples/model/data/todo_data.dart';
 import 'package:flutter_architecture_samples/utils/system_util.dart';
@@ -10,23 +11,24 @@ import 'package:flutter_architecture_samples/view/page/webview_page.dart';
 import 'package:flutter_architecture_samples/view/widget/create_todog_dialog.dart';
 import 'package:flutter_architecture_samples/view/widget/loading_view.dart';
 import 'package:flutter_architecture_samples/view/widget/net_image.dart';
+import 'package:flutter_architecture_samples/viewmodel/life_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/read_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/today_viewmodel.dart';
 import 'package:flutter_architecture_samples/viewmodel/viewmodel.dart';
 
-class TodayListPage extends StatefulWidget {
+class LifeTodoListPage extends StatefulWidget {
   final String type;
 
-  TodayListPage({Key key, @required this.type}) : super(key: key);
+  LifeTodoListPage({Key key, @required this.type}) : super(key: key);
 
   @override
   State createState() => ReadContentState();
 }
 
 /// 继承[MustKeepAliveMixin]实现页面切换不被清理
-class ReadContentState extends PageState<TodayListPage>
+class ReadContentState extends PageState<LifeTodoListPage>
     with MustKeepAliveMixin {
-  final _viewModel = TodayViewModel();
+  final _viewModel = LifeViewModel();
 
   @override
   void initState() {
@@ -54,7 +56,7 @@ class ReadContentState extends PageState<TodayListPage>
       body: StreamBuilder(
         stream: _viewModel.data.stream,
         builder: (context, snapshot) {
-          final List<TodoData> datas = snapshot.data ?? [];
+          final List<LifeData> datas = snapshot.data ?? [];
 
           return Stack(
             children: <Widget>[
@@ -108,7 +110,7 @@ class ReadContentState extends PageState<TodayListPage>
         });
   }
 
-  Widget _buildReadItem({@required TodoData data, @required int index}) {
+  Widget _buildReadItem({@required LifeData data, @required int index}) {
     return Card(
       color: Colors.white,
       clipBehavior: Clip.hardEdge,

@@ -37,6 +37,12 @@ class SharedDepository {
   Future<bool> setTodoReadData(String value) async =>
       await _prefs.setString("todoData", value);
 
+  // 生活清单
+  String get lifeData => _getString("lifeData");
+
+  Future<bool> setLifeTodoData(String value) async =>
+      await _prefs.setString("lifeData", value);
+
   /// 当前主题色
   Color get themeColor =>
       Color(_getInt("themeColor", defaultValue: 0xff7DA743));
