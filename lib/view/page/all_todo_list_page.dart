@@ -3,7 +3,9 @@ import 'package:flutter_architecture_samples/common/colors.dart';
 import 'package:flutter_architecture_samples/common/keep_alive_mixin.dart';
 import 'package:flutter_architecture_samples/language.dart';
 import 'package:flutter_architecture_samples/model/data/read_data.dart';
+import 'package:flutter_architecture_samples/model/data/today_todo_data.dart';
 import 'package:flutter_architecture_samples/model/data/todo_data.dart';
+import 'package:flutter_architecture_samples/model/holder/today_todo_holder.dart';
 import 'package:flutter_architecture_samples/utils/system_util.dart';
 import 'package:flutter_architecture_samples/view/page/page_state.dart';
 import 'package:flutter_architecture_samples/view/page/webview_page.dart';
@@ -138,6 +140,12 @@ class ReadContentState extends PageState<AllTodoListPage>
                             TextStyle(fontSize: 12, color: AppColor.colorText2),
                       ),
                     ),
+                    MaterialButton(
+                      child: Text('添加到今日待办'),
+                      onPressed: () {
+                        TodayTodoHolder().addTodo(TodayTodoData(data.time, data.content));
+                      },
+                    )
                   ],
                 ),
               ),
