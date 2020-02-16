@@ -124,5 +124,7 @@ void openBrowser(String url) async {
 }
 
 String currentTimeMillis() {
-  return new DateTime.now().millisecondsSinceEpoch.toString();
+  var now = new DateTime.now();
+  return now.year.toString() + "-" + now.month.toString() + "-" + now.day.toString()
+      + " " + now.hour.toString() + ":" + now.minute.toString() + ":" + now.second.toString();
 }
