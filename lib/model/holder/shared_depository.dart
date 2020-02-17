@@ -67,10 +67,10 @@ class SharedDepository {
     final str = _getString("pageModules2");
     if (str == null) {
       return List.from([
-        PageModule(module: "read", open: true),
-        PageModule(module: "collect", open: true),
         PageModule(module: "today", open: true),
         PageModule(module: "history", open: true),
+        PageModule(module: "read", open: true),
+        PageModule(module: "collect", open: true),
       ]);
     } else {
       return (jsonDecode(str) as List)

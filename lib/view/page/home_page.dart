@@ -26,7 +26,7 @@ class HomeState extends PageState<HomePage> {
   final _pageTypeMap = Map<PageType, bool>();
 
   /// 当前显示页面
-  var _pageType = PageType.READ;
+  var _pageType = PageType.TODAY;
 
   bool _readyExit = false;
   Timer _exitTimer;
@@ -49,10 +49,10 @@ class HomeState extends PageState<HomePage> {
     }));
 
     // 让第一个页面生效
-    _pageTypeMap[PageType.READ] = true;
-    _pageTypeMap[PageType.COLLECT] = false;
-    _pageTypeMap[PageType.TODAY] = false;
+    _pageTypeMap[PageType.TODAY] = true;
     _pageTypeMap[PageType.HISTORY] = false;
+    _pageTypeMap[PageType.READ] = false;
+    _pageTypeMap[PageType.COLLECT] = false;
   }
 
   @override

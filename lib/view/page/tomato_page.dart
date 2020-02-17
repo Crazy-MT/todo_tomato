@@ -33,7 +33,7 @@ class CustomWebViewState<T> extends PageState<TomatoClockPage> {
     return WillPopScope(
       child: Scaffold(
         key: scafKey,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: CustomAppBar(
           title: Text(
             '番茄钟',
@@ -56,13 +56,15 @@ class CustomWebViewState<T> extends PageState<TomatoClockPage> {
         ),
         body: Center(
           child: SizedBox(
-            height: 64.0,
+            height: (getScreenWidth(context) / 4 - 20) * 2 + 1,
             child: FlipClock.countdown(
-              duration: Duration(minutes: 1),
+              duration: Duration(minutes: 25),
               digitColor: Colors.white,
               backgroundColor: Colors.black,
-              digitSize: 48.0,
+              digitSize: getScreenWidth(context) / 5,
               borderRadius: const BorderRadius.all(Radius.circular(3.0)),
+              width: getScreenWidth(context) / 5,
+              height: (getScreenWidth(context) / 4 - 20) * 2,
               onDone: () => print('ih'),
             ),
           ),
